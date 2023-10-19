@@ -61,7 +61,7 @@ const handleEvents = () => {
 };
 
 const qrCode = () => {
-  initQr('https://www.nullgate.dev');
+  initQr();
   handleEvents();
   return false;
 };

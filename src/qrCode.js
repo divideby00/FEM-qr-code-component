@@ -46,6 +46,8 @@ const initQr = (text) => {
 const handleEvents = () => {
   const qrInput = document.querySelector('.form__input');
 
+  if(qrInput === null) return;
+
   const debouncedGenerate = debounce((event) => {
     initQr(event.target.value);
   });

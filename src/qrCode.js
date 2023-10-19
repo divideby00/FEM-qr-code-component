@@ -32,7 +32,7 @@ const appendQr = ({ urlImage, text }) => {
 };
 
 const initQr = (text) => {
-  if (!text) text = 'https://www.nullgate.dev';
+  if (!text) text = 'https://www.frontendmentor.io';
 
   toDataURL(text, qrOpts)
     .then((url) => {

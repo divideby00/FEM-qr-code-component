@@ -20,14 +20,19 @@ const appendQr = ({ urlImage, text }) => {
   const img = document.createElement('img');
   const container = document.querySelector('.qr-card__code');
   const qrLink = document.querySelector('.download-qr');
+
+  if (qrLink !== null) {
+    qrLink.href = urlImage;
+    qrLink.download = `${text}.jpg`;
+  }
+
   img.src = urlImage;
   img.alt = text;
-  qrLink.href = urlImage;
-  qrLink.download = `${text}.jpg`;
 
   if (container.firstChild) {
     container.removeChild(container.firstChild);
   }
+
   container.appendChild(img);
 };
 
@@ -46,7 +51,7 @@ const initQr = (text) => {
 const handleEvents = () => {
   const qrInput = document.querySelector('.form__input');
 
-  if(qrInput === null) return;
+  if (qrInput === null) return;
 
   const debouncedGenerate = debounce((event) => {
     initQr(event.target.value);
